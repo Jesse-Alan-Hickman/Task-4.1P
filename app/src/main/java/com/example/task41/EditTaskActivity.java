@@ -39,16 +39,17 @@ public class EditTaskActivity extends AppCompatActivity {
 
         dbHelper = new SQLiteDB(this);
 
+
         nameText = findViewById(R.id.nameText);
         descriptionText = findViewById(R.id.descriptionText);
         datePicker = findViewById(R.id.datePicker);
         timePicker = findViewById(R.id.timePicker);
 
-
+        String taskId =  getIntent().getStringExtra("TASK_ID");
         String taskTitle = getIntent().getStringExtra("TASK_TITLE");
         String taskDescription = getIntent().getStringExtra("TASK_DESCRIPTION");
-        String taskDueDate = getIntent().getStringExtra("TASK_DUE_DATE");
-        String taskTime = getIntent().getStringExtra("TASK_TIME");
+//        String taskDueDate = getIntent().getStringExtra("TASK_DUE_DATE");
+//        String taskTime = getIntent().getStringExtra("TASK_TIME");
 
         nameText.setText(taskTitle);
         descriptionText.setText(taskDescription);
@@ -63,14 +64,13 @@ public class EditTaskActivity extends AppCompatActivity {
                 String description = descriptionText.getText().toString();
                 String dueDate = getFormattedDate();
                 String time = getFormattedTime();
-                long taskId = getTaskId();
 
                 long result = dbHelper.updateData(taskId, title, description, time, dueDate);
 
                 if (result != -1) {
 
                     Log.d("EDIT_TASK", "Updated task information:");
-                    Log.d("EDIT_TASK", "ID" + taskId);
+                    Log.d("EDIT_TASK", "ID: " + taskId);
                     Log.d("EDIT_TASK","Title: " + title);
                     Log.d("EDIT_TASK", "Description: " + description);
                     Log.d("EDIT_TASK", "Due Date: " + dueDate);

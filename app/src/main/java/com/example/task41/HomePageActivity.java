@@ -22,7 +22,6 @@ import java.util.List;
 
 public class HomePageActivity extends AppCompatActivity {
 
-    private static final int EDIT_TASK_REQUEST_CODE = 1;
     private RecyclerView recyclerView;
     private RecyclerAdapter recyclerAdapter;
     private SQLiteDB dbHelper;
@@ -79,7 +78,7 @@ public class HomePageActivity extends AppCompatActivity {
         //Get button reference
         Button addNewButton = findViewById(R.id.addNewButton);
 
-            //OnClickListener for the Add button
+        //OnClickListener for the Add button
         addNewButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -87,41 +86,14 @@ public class HomePageActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
         });
-    }
 
-//    protected void onResume() {
-//        super.onResume();
-//
-//        List<Task> updatedTaskList = dbHelper.getAllTasks();
-//
-//        Log.d("TEST OF ONRESUME METHOD", "THE ON RESUME METHOD IS BEING CALLED!!!!!");
-//
-//        Log.d("UPDATED_TASK_LIST", "Updated task list Prior to OnResume method stuff:");
-//        for (Task task : updatedTaskList) {
-//            Log.d("UPDATED_TASK_LIST", task.getTitle() + ", " + task.getDescription());
-//        }
-//
-//        Collections.sort(updatedTaskList, new Comparator<Task>() {
-//            @Override
-//            public int compare(Task o1, Task o2) {
-//                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-//                try {
-//                    Date dueDate1 = sdf.parse(o1.getDueDate());
-//                    Date dueDate2 = sdf.parse(o2.getDueDate());
-//                    return dueDate1.compareTo(dueDate2);
-//                } catch (ParseException e) {
-//                    Log.e("DATE PARSE ERROR", "Error passing due date", e);
-//                }
-//                return 1;
-//            }
-//        });
-//
-//        recyclerAdapter.setTaskList(updatedTaskList);
-//        recyclerAdapter.notifyDataSetChanged();
-//
-//        Log.d("UPDATED_TASK_LIST", "Updated task list after OnResume method:");
-//        for (Task task : updatedTaskList) {
-//            Log.d("UPDATED_TASK_LIST", task.getTitle() + ", " + task.getDescription());
-//        }
-//    }
+        //OnCLickListener for the exit button
+        Button exitButton = findViewById(R.id.exitButton);
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finishAffinity();
+            }
+        });
+    }
 }

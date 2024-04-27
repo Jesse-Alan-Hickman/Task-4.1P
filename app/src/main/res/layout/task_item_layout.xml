@@ -48,16 +48,20 @@
         android:id="@+id/editButton"
         android:layout_width="68dp"
         android:layout_height="36dp"
+        android:layout_marginRight="5dp"
+        android:backgroundTint="@color/recyclerButtons"
+        android:textColor="@color/black"
         android:text="Edit"
-        android:textSize="11sp"
-        android:layout_marginRight="5dp"/>
+        android:textSize="11sp" />
 
     <Button
         android:id="@+id/removeButton"
         android:layout_width="89dp"
         android:layout_height="36dp"
         android:text="Remove"
-        android:textSize="11sp" />
+        android:textSize="11sp"
+        android:backgroundTint="@color/recyclerButtons"
+        android:textColor="@color/black"/>
 </LinearLayout>
 
 

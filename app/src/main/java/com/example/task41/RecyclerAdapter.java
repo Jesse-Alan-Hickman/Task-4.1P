@@ -4,17 +4,15 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.text.Html;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -85,8 +83,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.TaskVi
             public void onClick(View v) {
                 int taskId = taskList.get(position).getId();
 
+                Log.i("TASK ID: ", String.valueOf(taskId));
+
                 Intent intent = new Intent(context, EditTaskActivity.class);
-                intent.putExtra("TASK_ID", taskId);
+                intent.putExtra("TASK_ID", String.valueOf(taskId));
                 intent.putExtra("TASK_TITLE", taskList.get(position).getTitle());
                 intent.putExtra("TASK_DESCRIPTION", taskList.get(position).getDescription());
                 intent.putExtra("TASK_DUE_DATE", taskList.get(position).getDueDate());

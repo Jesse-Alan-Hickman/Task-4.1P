@@ -70,7 +70,7 @@ public class SQLiteDB extends SQLiteOpenHelper {
         return newRowId;
     }
 
-    public long updateData(long id, String title, String description, String time, String dueDate) {
+    public long updateData(String id, String title, String description, String time, String dueDate) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_TITLE, title);
@@ -86,20 +86,6 @@ public class SQLiteDB extends SQLiteOpenHelper {
         String[] projection = {COLUMN_ID, COLUMN_TITLE, COLUMN_DESCRIPTION, COLUMN_TIME, COLUMN_DUE_DATE};
         return db.query(TABLE_NAME, projection, null, null, null, null, null);
     }
-
-//    public int editData(int id, String title, String description, String time, String dueDate) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues values = new ContentValues();
-//        values.put(COLUMN_TITLE, title);
-//        values.put(COLUMN_DESCRIPTION, description);
-//        values.put(COLUMN_TIME, time);
-//        values.put(COLUMN_DUE_DATE, dueDate);
-//        String selection = COLUMN_ID + " = ?";
-//        String[] selectionArgs = {String.valueOf(id)};
-//        int count = db.update(TABLE_NAME, values, selection, selectionArgs);
-//        db.close();
-//        return count;
-//    }
 
     public int deleteData(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
